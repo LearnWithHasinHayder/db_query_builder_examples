@@ -106,12 +106,17 @@ class QueryController extends Controller {
         //     ->select('books.title', 'authors.name as author_name', 'books.author_id', 'books.id as book_id')
         //     ->get();
 
+
         //left join with authors
         $books = DB::table('books')
             ->rightJoin('authors', 'books.author_id', '=', 'authors.id')
             ->select('books.title', 'authors.name as author_name', 'books.author_id', 'books.id as book_id')
             ->orderBy('books.title', 'desc')
             ->get();
+
+        // if(count($books)==0){
+        //     $books =
+        // }
 
         // $count = DB::table('books')->count();
         // return $books;
